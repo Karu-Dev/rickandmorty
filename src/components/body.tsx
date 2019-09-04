@@ -51,10 +51,10 @@ export const Body: React.FC = () => {
                   <Card.Title>{it.id}</Card.Title>
                   <Card.Text>{it.name}</Card.Text>
                   <Card.Text>{it.species}</Card.Text>
-                  <Button href={"/characters/" + it.id} variant="primary">
+                  <Link to={"/characters/" + it.id}> 
                     Check him out!
                     {/* <Link to={"/characters/" + it.id}>Pepega</Link> */}
-                  </Button>
+                  </Link>
                 </Card.Body>
               </Card>
             </Col>
