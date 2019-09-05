@@ -1,10 +1,10 @@
-body{
-  background-color: #282c34
+body {
+  background-color: #282c34;
 }
 
 .App {
   text-align: center;
-  margin:0;
+  margin: 0;
 }
 
 .App-logo {
@@ -28,10 +28,30 @@ body{
   color: #61dafb;
 }
 
+.Navigation{
+  position: sticky;
+  top: 0;
+  z-index: 2;
+  ;
+}
+
+.carousel-indicators {
+  z-index: 0;
+}
+.Carousel img{
+  width:10%
+}
+
+.card {
+  margin: 0, 0, 100, 0;
+  width:
+}
+
 @keyframes App-logo-spin {
   from {
     transform: rotate(0deg);
   }
+
   to {
     transform: rotate(360deg);
   }

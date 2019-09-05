@@ -45,16 +45,22 @@ export const Body: React.FC = () => {
         ) : (
           characters.map((it: any, i: any) => (
             <Col key={i}>
-              <Card style={{ width: "18rem" }}>
+              <Card
+                style={{
+                  width: "18rem",
+                  margin: 10,
+                  backgroundColor: "rgb(64, 69, 79)"
+                }}
+              >
                 <Card.Img variant="top" src={it.image} />
                 <Card.Body>
                   <Card.Title>{it.id}</Card.Title>
                   <Card.Text>{it.name}</Card.Text>
                   <Card.Text>{it.species}</Card.Text>
-                  <Link to={"/characters/" + it.id}> 
+                  <Button variant="dark" href={"/characters/" + it.id}>
                     Check him out!
                     {/* <Link to={"/characters/" + it.id}>Pepega</Link> */}
-                  </Link>
+                  </Button>
                 </Card.Body>
               </Card>
             </Col>

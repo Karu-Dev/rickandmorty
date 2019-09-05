@@ -26,6 +26,9 @@ const FETCH_CHARACTER = gql`
         dimension
         name
       }
+      episode {
+        name
+      }
     }
   }
 `;
@@ -42,12 +45,16 @@ export interface Character {
   status: string;
   gender: string;
   origin: Origin;
+  episode: Episode[];
 }
 interface CharactersVariables {
   id: number;
 }
 interface Origin {
   dimension: string;
+  name: string;
+}
+interface Episode {
   name: string;
 }
 
@@ -60,7 +67,8 @@ const mee6: Character = {
   origin: {
     dimension: "unknown",
     name: "Mr. Meeseeks Box"
-  }
+  },
+  episode: [{ name: "" }]
 };
 export const Character: React.FC<MatchProps> = ({ match }) => {
   const { loading, error, data } = useQuery<Characters, CharactersVariables>(
@@ -71,24 +79,25 @@ export const Character: React.FC<MatchProps> = ({ match }) => {
   console.log(char);
   return (
     <Container>
-      <style type="text/css">
-        {`
-    table{
-      border:1px solid black;
-    }
-    `}
-      </style>
       <Row>
-        <Col sm={8}>
-          <h1>{char.name}</h1>
+        <Col sm={8} style={{border:"1px solid black", borderRight:"none"}}>
+          <Row>
+            <h1>{char.name}</h1>
+          </Row>
+          <Row>
+            <Col>
+              <div>
+                <b>
+                  In episodes: <br />
+                </b>
+              </div>
+              {char.episode.map(it => (
+                it.name + ", "
+              ))}
+            </Col>
+          </Row>
         </Col>
-        <Col sm={4}>
-          <img src={char.image} />
-        </Col>
-      </Row>
-      <Row>
-        <Col sm={8}>Some witty text about our hero that's not really provided by our API</Col>
-        <Col sm>
+        <Col sm={4} style={{border:"1px solid black",padding:0,margin:0}}>
           <CharComponent
             name={char.name}
             origin={char.origin}
@@ -96,6 +105,7 @@ export const Character: React.FC<MatchProps> = ({ match }) => {
             image={char.image}
             gender={char.gender}
             status={char.status}
+            episode={char.episode}
           />
         </Col>
       </Row>
