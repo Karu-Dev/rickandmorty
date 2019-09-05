@@ -4,7 +4,7 @@ import {
   Route,
   RouteComponentProps
 } from "react-router-dom";
-import { Container, Col, Row } from "react-bootstrap";
+import { Container, Col, Row, Spinner } from "react-bootstrap";
 import { gql } from "apollo-boost";
 import { useQuery } from "@apollo/react-hooks";
 import { CharComponent } from "./componentComponents/charStatus";
@@ -59,7 +59,7 @@ interface Episode {
 }
 
 const mee6: Character = {
-  name: "Mr. Meeseeks",
+  name: "fake",
   status: "unknown",
   species: "Humanoid",
   gender: "Male",
@@ -78,6 +78,7 @@ export const Character: React.FC<MatchProps> = ({ match }) => {
   const char = loading || !data ? mee6 : data.character;
   console.log(char);
   return (
+    char.name==="fake"?<Spinner animation="border" style={{margin:"0 50%"}}/>:
     <Container>
       <Row>
         <Col sm={8} style={{border:"1px solid black", borderRight:"none"}}>

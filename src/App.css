@@ -1,5 +1,6 @@
 body {
   background-color: #282c34;
+  color: white;
 }
 
 .App {
@@ -28,23 +29,32 @@ body {
   color: #61dafb;
 }
 
-.Navigation{
+.Navigation {
   position: sticky;
   top: 0;
-  z-index: 2;
-  ;
+  z-index: 3;
+}
+.carousel-caption {
+  z-index: 1;
+}
+.carousel-caption a {
+  color: white;
+  font-size: x-large;
+}
+.carousel-caption a:hover {
+  text-decoration: none;
 }
 
 .carousel-indicators {
-  z-index: 0;
+  z-index: 1;
 }
-.Carousel img{
-  width:10%
+.Carousel img {
+  width: 10%;
 }
 
 .card {
   margin: 0, 0, 100, 0;
-  width:
+  width: ;
 }
 
 @keyframes App-logo-spin {
